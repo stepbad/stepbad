@@ -39,35 +39,32 @@ Run the script to enter and calculate new insurance policy information for custo
 The script will prompt the user to enter various pieces of information about the insurance policy and the customer. Follow the on-screen prompts to provide the necessary information.
 
 **Functions**
-calculate_payment(pay_method, total_cost, down_pay_amt, processing_fee)
+
+**calculate_payment(pay_method, total_cost, down_pay_amt, processing_fee)**
 Calculates the payment method and payment details based on the provided payment method.
 
 Parameters:
-
 pay_method: The method of payment selected by the user.
 total_cost: The total cost of the insurance policy.
 down_pay_amt: The down payment amount.
 processing_fee: The processing fee for the policy.
 Returns:
-
 A tuple containing the payment method, down payment amount, processing fee, and pay amount.
-open_read_claim_file(file_name)
+
+**open_read_claim_file(file_name)**
 Reads and processes the claims from the specified file.
 
 Parameters:
-
 file_name: The name of the file containing the claims.
 Returns:
-
 A list of tuples, each containing the claim number, claim amount, and claim date.
-open_const_read(file_name)
+
+**open_const_read(file_name)**
 Reads constants from the specified file.
 
 Parameters:
-
 file_name: The name of the file containing the constants.
 Returns:
-
 A tuple containing the constants read from the file.
 
 **Data Files**
