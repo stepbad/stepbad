@@ -138,3 +138,83 @@ while True:
   g.write(f"{Down_Pay_Amt}\n")
 
   print()
+
+# Add in CLAIM section
+
+# Enter claim section.
+
+
+  # Set up Counter and Accumulator
+  Claim_Amt_Acc = 0.0
+  Claim_Num_Ctr = 0
+
+  while True:
+    Continue = input("Do you want to enter client's claim information? (Y / N): ").upper()
+    print()
+
+    if Continue != "Y" and Continue != "N":
+        print("   Data Entry Error - prompt to continue must be a Y or an N.")
+    
+    elif Continue == "Y":
+      print("Client's Information Entry System")
+      print()
+      Claim_Num_Ctr += 1
+
+    # Open the Claim.dat file in append mode. Write the client's information and the claims to the file.
+      h = open("Claim.dat", "a")
+      
+      Claim_Date = input("Enter the claim date (YYYY,MM,DD): ")
+      print()
+
+      Claim_Amt = input("Enter the claim amount: ")
+
+        
+      # I am creating a complex claim number containing relative information.
+
+      Year_Sec, Mon_Sec, Day_Sec = Claim_Date.strip().split(",")
+
+      Claim_Num = f"{Year_Sec}{Mon_Sec}{Day_Sec}-{random.randint(1000, 9999)}-{NEXT_POLICY_NUM}{First_Name[0]}{Last_Name[0]}0{Claim_Num_Ctr}"
+
+      h.write(f"{Claim_Num}, ")
+      h.write(f"{Claim_Date}, ")
+
+      # Update Counter and Accumulator
+      Claim_Amt = float(Claim_Amt)
+      Claim_Amt_Acc += Claim_Amt
+      h.write(f"{Claim_Amt}\n")
+      h.close()
+
+      print()
+  
+    else:
+      Claim_Num = "00000000-0000-0000aa00"
+      Claim_Date = "0000,00,00"
+      Claim_Amt = 0
+      break     
+  
+  print("Exiting Claim Information Entry System.") 
+  print()
+
+  # Close the files and add blinking message
+  g.close()
+  
+  # 1. Blinking message for the user. Directly from class.
+  # Simple progress bar - just a blinking message.
+  # Need to import sys and time.
+
+  print()
+
+  Message = "Saving Client Information  ..."
+  for _ in range(5):  # Change to control no. of 'blinks'
+      print(Message, end='\r')
+      time.sleep(.3)  # To create the blinking effect
+      sys.stdout.write('\033[2K\r')  # Clears the entire line and carriage returns
+      time.sleep(.3)
+
+  print()
+  print()
+  print("Client information has been successfully saved to ClientInfo.dat & Claim.dat ...")
+  print()
+  print()
+
+  
