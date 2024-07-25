@@ -217,6 +217,45 @@ while True:
   print()
   print()
 
+  # adding CALCULATIONS
+
+    # Perform required calculations
+  
+  Num_Cars = float(Num_Cars)
+  if Num_Cars == 1.0 :
+    Basic_Fee= BASIC_PREMIUM
+  elif Num_Cars > 1.0 :
+    Basic_Fee= BASIC_PREMIUM * ( 1.0 + ((Num_Cars - 1.0) * NUM_CAR_DISCOUNT))
+
+  # Additional Coverage Fees Calculations
+
+  Add_Fees = 0.0
+
+  if Ext_Liab == "Y":
+     Add_Fees += EXTRA_LIAB_COST * Num_Cars
+  
+  if Glass_Cov == "Y":
+     Add_Fees += GLASS_COVER_COST * Num_Cars
+  
+  if Loan_Car == "Y":
+     Add_Fees += LOANER_CAR_COST * Num_Cars
+
+  # Total Premium Calculation
+  Total_Premium = Add_Fees + Basic_Fee
+  Hst = Total_Premium * HST_RATE
+  Total_Cost = Total_Premium + Hst
+
+  
+  #Calculate today's date.
+
+  CURRENT_DATE = datetime.datetime.now()
+  CURRENT_DATE = CURRENT_DATE.strftime("%Y-%m-%d")
+
+  # Call the Calculate_Payment function.
+
+
+  Payment_Method, Down_Pay_Amt, Proc_Fee, Pay_Amount = Calculate_Payment(Pay_Method, Total_Cost, Down_Pay_Amt, PROCESSING_FEE)
+
   # added OUTPUT section
 
 # Display results
