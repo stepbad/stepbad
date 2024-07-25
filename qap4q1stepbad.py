@@ -257,3 +257,39 @@ while True:
   print(f"Total Claimed Amount: {FV.FDollar2(Claim_Amt_Acc)}")
   print()
 
+# adding in UPDATE POLICY and exit
+
+  # Update Next policy #
+
+  NEXT_POLICY_NUM += 1
+
+  #Rewrite file to adjust Policy Number
+
+  f = open("Const.dat", "w")
+  f.write(f"{NEXT_POLICY_NUM}, ")
+  f.write(f"{BASIC_PREMIUM}, ")
+  f.write(f"{NUM_CAR_DISCOUNT}, ")
+  f.write(f"{EXTRA_LIAB_COST}, ")
+  f.write(f"{GLASS_COVER_COST}, ")
+  f.write(f"{LOANER_CAR_COST}, ")
+  f.write(f"{HST_RATE}, ")
+  f.write(f"{PROCESSING_FEE}, ")
+  f.write(f"{MAX_PHONE_LENGTH}\n")
+                    
+  f.close()
+
+# End or Input next customer info.
+  while True:
+    Continue = input("Do you want to enter another client's information? (Y / N): ").upper()
+    print()
+
+    if Continue != "Y" and Continue != "N":
+        print("   Data Entry Error - prompt to continue must be a Y or an N.")
+    else:
+        break
+
+  if Continue == "N":
+    break
+  
+  # Housekeeping
+print("Have a nice day.")
