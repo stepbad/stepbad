@@ -217,4 +217,43 @@ while True:
   print()
   print()
 
-  
+  # added OUTPUT section
+
+# Display results
+
+  print()
+  print(f"One Stop Insurance Company     Phone: 1-800-123-4567     Email: customerassistant@onestop.com      Date: {CURRENT_DATE}")
+  print(f"=======================================================================================================================")
+  print()
+  print(f"Client Information")
+  print(f"-----------------------------------------------------------------------------------------------------------------------")
+  print(f"Policy Number:      Name                             Address:                                        Phone:")
+  print(f"{NEXT_POLICY_NUM:>4d}             {First_Name:>12s}  {Last_Name:<20s} {St_Address:>14s} , {City:<14s} {Prov:>2s} {Postal_Code}       {Phone_Number:14s}")
+  print()
+  print(f"Payment Information")
+  print(f"-----------------------------------------------------------------------------------------------------------------------")
+
+  print(f"Payment Method:        Total Premium:    HST:        Total Cost:    Processing Fee:       Payment Amount:  ")
+  print(f"{Payment_Method:<20s}   {(FV.FDollar2(Total_Premium)):<10s}        {(FV.FDollar2(Hst)):<8s}    {(FV.FDollar2(Total_Cost)):<10s}     {(FV.FDollar2(Proc_Fee)):<7s}               {(FV.FDollar2(Pay_Amount)):<11s}")
+  print(f"-----------------------------------------------------------------------------------------------------------------------")
+
+  print()
+  print(f"Claims:")
+  print(f"Claim Number:                      Date:              Amount:  ")
+  print(f"-----------------------------------------------------------------------------------------------------------------------")
+
+
+# Call Function to Open Claims.dat to print claims data
+  claims = OpenReadClaimFile("Claim.dat")
+
+  for claim in claims:
+    Claim_Num, Claim_Amt, Claim_Date = claim
+    Date_Sec, Tot_Sec, Pol_Sec = Claim_Num.strip().split("-")
+    if str(NEXT_POLICY_NUM) in str(Pol_Sec):
+        print(f"{Claim_Num:<10s}             {Claim_Date:<10s}        {FV.FDollar2(float(Claim_Amt))}")
+  print(f"-----------------------------------------------------------------------------------------------------------------------")
+  print()
+  print(f"Total Number of Claims : {Claim_Num_Ctr}")
+  print(f"Total Claimed Amount: {FV.FDollar2(Claim_Amt_Acc)}")
+  print()
+
