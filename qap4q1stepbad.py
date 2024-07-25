@@ -1,4 +1,89 @@
-# starting with inputs and what i need for main program
+'''  Description: QAP Project 1  Python Functions, Lists, and Data Files
+The One Stop Insurance Company needs a program to enter and calculate new insurance policy information for its customers. This program will save the client information in ClientInfo.dat and claim information in Claim.dat '''
+
+# Author: Stephen Badcock
+
+# Date(s): July 17, 2024
+ 
+ 
+# Define required libraries.
+import sys
+import random
+import time
+import datetime
+import FormatValues as FV
+def Calculate_Payment(Pay_Method, Total_Cost, Down_Pay_Amt, PROCESSING_FEE):
+  # Payment Options
+  if Pay_Method == "1":
+      Payment_Method = "Pay in Full"
+      Down_Pay_Amt = 0
+      Proc_Fee = 0
+      Pay_Amount = Total_Cost
+  elif Pay_Method == "2":
+      Payment_Method = "Monthly Payments"
+      Down_Pay_Amt = 0
+      Proc_Fee = PROCESSING_FEE
+      Pay_Amount = (Total_Cost + Proc_Fee) / 8
+  else:
+      Payment_Method = "Down Payment Option"
+      Down_Pay_Amt = float(Down_Pay_Amt)
+      Proc_Fee = PROCESSING_FEE
+      Pay_Amount = (Total_Cost + Proc_Fee - Down_Pay_Amt) / 8
+  
+  return Payment_Method, Down_Pay_Amt, Proc_Fee, Pay_Amount
+
+# Function to open and sort Claim.dat for reading.
+
+def OpenReadClaimFile(file_name):
+    with open(file_name, "r") as file:
+        for line in file:
+            linelst = line.split(",")
+            Claim_Num = (linelst[0].strip())
+            Claim_Year = (linelst[1].strip())
+            Claim_Month = (linelst[2].strip())
+            Claim_Day = (linelst[3].strip())
+            Claim_Amt = (linelst[4].strip())
+            Claim_Date = f"{Claim_Year}-{Claim_Month}-{Claim_Day}"
+            # Formatting Claim_Date to YYYY-MM-DD format for comparison.
+            return Claim_Num, Claim_Amt, Claim_Date
+  
+
+def openConstRead(file_name):
+
+  with open(file_name, "r") as file:
+    for Constants in file:
+      ConstLst = Constants.split(",")
+
+      NEXT_POLICY_NUM = int(ConstLst[0].strip())
+      BASIC_PREMIUM = float(ConstLst[1].strip())
+      NUM_CAR_DISCOUNT = float(ConstLst[2].strip())
+      EXTRA_LIAB_COST = float(ConstLst[3].strip())
+      GLASS_COVER_COST = float(ConstLst[4].strip())
+      LOANER_CAR_COST = float(ConstLst[5].strip())
+      HST_RATE = float(ConstLst[6].strip())
+      PROCESSING_FEE = float(ConstLst[7].strip())
+      MAX_PHONE_LENGTH = int(ConstLst[8].strip())
+
+      return NEXT_POLICY_NUM, BASIC_PREMIUM, NUM_CAR_DISCOUNT, EXTRA_LIAB_COST, GLASS_COVER_COST, LOANER_CAR_COST, HST_RATE, PROCESSING_FEE, MAX_PHONE_LENGTH
+
+def OpenReadClaimFile(file_name):
+    claims = []
+    with open(file_name, "r") as file:
+        for line in file:
+            linelst = line.split(",")
+            Claim_Num = (linelst[0].strip())
+            Claim_Year = (linelst[1].strip())
+            Claim_Month = (linelst[2].strip())
+            Claim_Day = (linelst[3].strip())
+            Claim_Amt = (linelst[4].strip())
+            Claim_Date = f"{Claim_Year}-{Claim_Month}-{Claim_Day}"
+            claims.append((Claim_Num, Claim_Amt, Claim_Date))
+    return claims
+    
+# Main program starts here.
+# Call Function for constants.
+NEXT_POLICY_NUM, BASIC_PREMIUM, NUM_CAR_DISCOUNT, EXTRA_LIAB_COST, GLASS_COVER_COST, LOANER_CAR_COST, HST_RATE, PROCESSING_FEE, MAX_PHONE_LENGTH = openConstRead("Const.dat")
+
 
 while True:
   print()
@@ -139,8 +224,6 @@ while True:
 
   print()
 
-# Add in CLAIM section
-
 # Enter claim section.
 
 
@@ -217,9 +300,9 @@ while True:
   print()
   print()
 
-  # adding CALCULATIONS
+  
 
-    # Perform required calculations
+  # Perform required calculations
   
   Num_Cars = float(Num_Cars)
   if Num_Cars == 1.0 :
@@ -256,9 +339,7 @@ while True:
 
   Payment_Method, Down_Pay_Amt, Proc_Fee, Pay_Amount = Calculate_Payment(Pay_Method, Total_Cost, Down_Pay_Amt, PROCESSING_FEE)
 
-  # added OUTPUT section
-
-# Display results
+  # Display results
 
   print()
   print(f"One Stop Insurance Company     Phone: 1-800-123-4567     Email: customerassistant@onestop.com      Date: {CURRENT_DATE}")
@@ -295,8 +376,6 @@ while True:
   print(f"Total Number of Claims : {Claim_Num_Ctr}")
   print(f"Total Claimed Amount: {FV.FDollar2(Claim_Amt_Acc)}")
   print()
-
-# adding in UPDATE POLICY and exit
 
   # Update Next policy #
 
