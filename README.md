@@ -1,78 +1,26 @@
-# QAP Project 4Q1: Python Functions, Lists, and Data Files
+**Stephen Badcock - Software Developer | Tech Enthusiast | Writer | AI Prompt Engineer**
 
-## Description
+Hello! I'm Stephen, a passionate software development student based in Victoria, Newfoundland. My journey into the world of technology is fueled by my love for logic, math, and problem-solving. I enjoy diving deep into coding, learning new technologies, and building projects that push my skills forward.
 
-The One Stop Insurance Company needs a program to enter and calculate new insurance policy information for its customers. This program saves the client information in `ClientInfo.dat` and claim information in `Claim.dat`.
+**Skills & Interests:**
 
-## Author
+**Languages**: HTML, CSS, JavaScript, Python, Java (and always learning more!)
 
-- Stephen Badcock
+**Focus Areas:** Software Development, Web Development, Algorithms, React, AWS
 
-## Date
+**AI & Prompt Engineering:** After completing an AI prompt engineering course, I’ve become deeply interested in using AI prompting for creative writing, music, and literature. I’ve even developed my own writing assistant GPT to enhance this process.
 
-- July 23, 2024
+**Learning Style**: I thrive on understanding concepts through reading and writing, supplemented by visual aids like diagrams and charts to make complex ideas clearer.
 
-## Requirements
+**Passions:** Besides coding, I enjoy creative writing, including stories, movie scripts, and songwriting, with a focus on meaningful narratives.
 
-- Python 3.x
-- Required libraries: `datetime`, `FormatValues` (custom module)
+**Projects & Contributions:**
+I'm working on several projects related to web development and exploring various aspects of software engineering. You can find my repositories here on GitHub, where I aim to collaborate, learn, and contribute to open-source projects.
 
-## Installation
-
-1. Clone the repository or download the project files.
-2. Ensure you have Python 3.x installed on your machine.
-3. Place the `FormatValues.py` module in the same directory as `qap4q1stepbad.py`.
-
-## Usage
-
-Run the script to enter and calculate new insurance policy information for customers. The program processes and stores client and claim information in data files.
-
-### Running the Script
-
-1. Open a terminal or command prompt.
-2. Navigate to the directory containing `qap4q1stepbad.py`.
-3. Run the script using the following command:
-   ```bash
-   python qap4q1stepbad.py
-
-**User Interaction**
-The script will prompt the user to enter various pieces of information about the insurance policy and the customer. Follow the on-screen prompts to provide the necessary information.
-
-**Functions**
-
-**calculate_payment(pay_method, total_cost, down_pay_amt, processing_fee)**
-Calculates the payment method and payment details based on the provided payment method.
-
-Parameters:
-pay_method: The method of payment selected by the user.
-total_cost: The total cost of the insurance policy.
-down_pay_amt: The down payment amount.
-processing_fee: The processing fee for the policy.
-Returns:
-A tuple containing the payment method, down payment amount, processing fee, and pay amount.
-
-**open_read_claim_file(file_name)**
-Reads and processes the claims from the specified file.
-
-Parameters:
-file_name: The name of the file containing the claims.
-Returns:
-A list of tuples, each containing the claim number, claim amount, and claim date.
-
-**open_const_read(file_name)**
-Reads constants from the specified file.
-
-Parameters:
-file_name: The name of the file containing the constants.
-Returns:
-A tuple containing the constants read from the file.
-
-**Data Files**
-ClientInfo.dat: Stores client information.
-Claim.dat: Stores claim information.
-Const.dat: Stores constant values used in calculations.
+**Fun Facts:**
+I have a knack for simplifying complex ideas using logic and mathematical approaches.
+My creative side finds its outlet in writing, with a focus on avoiding common clichés in my songwriting.
+I’m currently exploring AI's potential in creative fields like writing and music through prompt engineering.
 
 
-**Notes**
-Ensure that the FormatValues module is present in the same directory as qap4q1stepbad.py.
-The script prompts the user for input and processes the entered data to generate and store insurance policy information.
+**Feel free to check out my repositories or connect with me for collaborations!**
